@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh Sách Nhân Viên</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Danh Sách Nhân Viên</h2>
+
+<a th:href="@{/addNhanVien}">Thêm Nhân Viên Mới</a>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Tên Nhân Viên</th>
+    <th>Email</th>
+    <th>Công Ty</th>
+    <th>Hành Động</th>
+  </tr>
+  <tr th:each="nhanvien : ${nhanviens}">
+    <td th:text="${nhanvien.id}">ID</td>
+    <td th:text="${nhanvien.name}">Tên</td>
+    <td th:text="${nhanvien.email}">Email</td>
+    <td>
+      <ul>
+        <li th:each="company : ${nhanvien.companies}" th:text="${company.companyName}"></li>
+      </ul>
+    </td>
+    <td>
+      <a th:href="@{/editNhanVien/{id}(id=${nhanvien.id})}">Sửa</a> |
+      <a th:href="@{/deleteNhanVien/{id}(id=${nhanvien.id})}">Xóa</a>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

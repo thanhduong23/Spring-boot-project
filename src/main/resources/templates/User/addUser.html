@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thêm mới người dùng</title>
+</head>
+<body>
+<h1>Thêm mới người dùng</h1>
+
+<!-- Form thêm người dùng mới -->
+<form action="#" th:action="@{/saveUser}" th:object="${user}" method="post">
+    <!-- Không cần input cho ID, ID sẽ được tạo tự động -->
+    <label for="firstName">Username:</label>
+    <input type="text" id="firstName" th:field="*{firstName}" /><br/>
+
+    <label for="lastName">Email:</label>
+    <input type="text" id="lastName" th:field="*{email}" /><br/>
+
+    <button type="submit">Lưu</button>
+</form>
+</body>
+</html>
+
+

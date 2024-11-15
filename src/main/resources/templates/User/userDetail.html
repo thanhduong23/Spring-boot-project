@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Chi Tiết Người Dùng</title>
+  <style>
+    .detail {
+      width: 50%;
+      margin: 0 auto;
+      border: 1px solid black;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Chi Tiết Người Dùng</h2>
+
+<div class="detail">
+  <p><strong>Tên Người Dùng:</strong> <span th:text="${user.firstName}">Tên Người Dùng</span></p>
+  <p><strong>Email:</strong> <span th:text="${user.email}">Email Người Dùng</span></p>
+
+  <h3>Thông Tin Công Ty</h3>
+  <p><strong>Tên Công Ty:</strong> <span th:text="${company.companyName}">Tên Công Ty</span></p>
+</div>
+
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--  <title>Chi tiết người dùng</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--  <h1>Thông tin chi tiết người dùng</h1>-->
+<!--  <p>ID: <span th:text="${user.id}"></span></p>-->
+<!--  <p>First Name: <span th:text="${user.firstName}"></span></p>-->
+<!--  <p>Last Name: <span th:text="${user.email}"></span></p>-->
+
+<!--  <a th:href="@{/deleteUser/{id}(id=${user.id})}">Xóa người dùng</a>-->
+<!--</body>-->
+<!--</html>-->

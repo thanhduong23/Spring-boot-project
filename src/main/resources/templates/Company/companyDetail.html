@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Chi Tiết Công Ty</title>
+  <style>
+    .detail {
+      width: 50%;
+      margin: 0 auto;
+      border: 1px solid black;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Chi Tiết Công Ty</h2>
+
+<div class="detail">
+  <p><strong>Tên Công Ty:</strong> <span th:text="${company.companyName}">Tên Công Ty</span></p>
+  <p><strong>Danh Sách Người Dùng:</strong></p>
+  <ul>
+    <li th:each="user : ${company.users}">
+      <span th:text="${user.firstName + ' - ' + user.email}">Tên Người Dùng</span>
+    </li>
+  </ul>
+  <p><strong>Danh Sách Nhân Viên:</strong></p>
+  <ul>
+    <li th:each="nhanvien : ${company.nhanviens}">
+      <span th:text="${nhanvien.name + ' - ' + nhanvien.email}">Tên Nhân Viên</span>
+    </li>
+  </ul>
+</div>
+
+</body>
+</html>

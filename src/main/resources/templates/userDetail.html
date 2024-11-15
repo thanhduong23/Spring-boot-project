@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Chi tiết người dùng</title>
+</head>
+<body>
+  <h1>Thông tin chi tiết người dùng</h1>
+  <p>ID: <span th:text="${user.id}"></span></p>
+  <p>First Name: <span th:text="${user.firstName}"></span></p>
+  <p>Last Name: <span th:text="${user.lastName}"></span></p>
+
+  <a th:href="@{/deleteUser/{id}(id=${user.id})}">Xóa người dùng</a>
+</body>
+</html>

@@ -1,40 +1,21 @@
-<!--<!DOCTYPE html>-->
-<!--<html xmlns:th="http://www.thymeleaf.org">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Trang Chủ</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--    <h1>Chào mừng đến với trang thông tin lớp học</h1>-->
-<!--    <p th:text="${lop}"></p>-->
-<!--</body>-->
-<!--</html>-->
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <title>Danh sách người dùng</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
 </head>
 <body>
-<h1>Danh sách người dùng</h1>
-
-<table border="1">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-    </tr>
-    </thead>
-    <tbody>
-    <!-- Lặp qua danh sách người dùng và hiển thị -->
-    <tr th:each="user : ${users}">
-        <td th:text="${user.id}"></td>
-        <td th:text="${user.firstName}"></td>
-        <td th:text="${user.lastName}"></td>
-    </tr>
-    </tbody>
-</table>
-
-<a href="/addUser">Thêm mới người dùng</a>
+<div class="container">
+    <h1>Welcome to the Home Page!</h1>
+    <p>You are logged in.</p>
+    <form action="/logout" method="post">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+    <a href="/list-users" class="btn btn-primary mt-3">Users</a>
+    <a href="/companies" class="btn btn-secondary mt-3">Company</a>
+    <a href="/nhanviens" class="btn btn-info mt-3">NhanVien</a>
+</div>
 </body>
 </html>

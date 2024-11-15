@@ -1,6 +1,9 @@
-package nhom3.spring.thanh.baitap1;
+package nhom3.spring.thanh.baitap1.Service;
 
 
+import nhom3.spring.thanh.baitap1.Class.UserDemo;
+import nhom3.spring.thanh.baitap1.Repository.RoleRepository;
+import nhom3.spring.thanh.baitap1.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
@@ -10,14 +13,17 @@ import java.util.List;
 public class UserService {
     @Autowired
     UserRepository userRepository;
-    public void saveOrUpdate(UserDemo user)
+    @Autowired
+    private RoleRepository roleRepository;
+
+
+    public UserDemo saveOrUpdate(UserDemo user)
     {
-        userRepository.save(user);
+       userRepository.save(user);
+        return user;
     }
 
-//    public Iterable<UserDemo> getAllUsers() {
-//        return userRepository.findAll();
-//    }
+
     public List<UserDemo> getAllUsers() {
         return (List<UserDemo>) userRepository.findAll();
     }

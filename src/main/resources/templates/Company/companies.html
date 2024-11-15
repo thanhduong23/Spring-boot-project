@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh Sách Công Ty</title>
+  <style>
+    table {
+      width: 80%;
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    h2 {
+      text-align: center;
+    }
+    .action-links a {
+      margin-right: 10px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Danh Sách Công Ty</h2>
+<a th:href="@{/addCompany}" class="add-company-btn">Thêm Công Ty</a>
+<table>
+  <thead>
+  <tr>
+    <th>Tên Công Ty</th>
+    <th>Số Lượng Người Dùng</th>
+    <th>Số Lượng Nhân Viên</th>
+    <th>Hành Động</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="company : ${companies}">
+    <td th:text="${company.companyName}">Tên Công Ty</td>
+    <td th:text="${company.users.size()}">Số Người Dùng</td>
+    <td th:text="${company.nhanviens.size()}">Số Nhân Viên</td>
+    <td>
+      <a th:href="@{/companyDetail/{id}(id=${company.id})}">Chi Tiết</a>
+      <a th:href="@{/editCompany/{id}(id=${company.id})}">Sửa</a>
+      <a th:href="@{/deleteCompany/{id}(id=${company.id})}">Xóa</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
